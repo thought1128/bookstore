@@ -40,13 +40,13 @@
 	<table class="table table-hover mx-auto" style="width: 700px;" >
 		<tr>
 			<th>결재 완료/배송 준비중</th>
-			<td>${beforeDeliveryCount }</td>
+			<th>${beforeDeliveryCount }</th>
 			<th>배송중</th>
-			<td>${onDeliveryCount }</td>
+			<th>${onDeliveryCount }</th>
 			<th>배송완료</th>
-			<td>${afterDeliveryCount }</td>
+			<th>${afterDeliveryCount }</th>
 			<th>취소/반품/교환</th>
-			<td>${cancelDeliveryCount }</td>
+			<th>${cancelDeliveryCount }</th>
 		</tr>
 
 	</table>
@@ -68,43 +68,42 @@
 		</tr>
 		<c:forEach items="${list }" var="orders">
 			<tr>
-				<td><a
-					href="memberOProductDetail.me?orderNum=${orders.orderNum }">${orders.orderNum }</a></td>
-				<td>${orders.orderDate }</td>
-				<td>${orders.trackNum }</td>
-				<td>${orders.name }</td>
-				<td>${orders.address }</td>
+				<th><a href="memberOProductDetail.me?orderNum=${orders.orderNum }">${orders.orderNum }</a></th>
+				<th>${orders.orderDate }</th>
+				<th>${orders.trackNum }</th>
+				<th>${orders.name }</th>
+				<th>${orders.address }</th>
 				
 				<c:if
 					test="${orders.status eq '고객 주문취소' or orders.status eq '관리자 주문취소'or orders.status eq '환불완료'or orders.status eq '교환완료'}">
-					<td class="table-danger">${orders.status }</td>
+					<th class="table-danger">${orders.status }</th>
 				</c:if>
 				<c:if
 					test="${orders.status eq '고객 주문취소 요청' or orders.status eq '환불요청' or orders.status eq '교환요청'}">
-					<td class="table-warning">${orders.status }</td>
+					<th class="table-warning">${orders.status }</th>
 				</c:if>
 				<c:if
 					test="${orders.status eq '' or orders.status eq '결재 완료'or orders.status eq '배송전'}">
-					<td class="table-primary">${orders.status }</td>
+					<th class="table-primary">${orders.status }</th>
 				</c:if>
 
 				<c:if test="${orders.status eq '배송완료'or orders.status eq '배송중'}">
-					<td class="table-success">${orders.status }</td>
+					<th class="table-success">${orders.status }</th>
 				</c:if>
-				<td>${orders.totalPrice }</td>
+				<th>${orders.totalPrice }</th>
 				
-				<td>${orders.reason }</td>
+				<th>${orders.reason }</th>
 				<c:if test="${orders.status eq '결재 완료' or orders.status eq '배송전'}">
-					<td><input type="button" value="주문 취소" class="btn btn-warning"
-						onclick="cancelOrder(${orders.orderNum })"></td>
+					<th><input type="button" value="주문 취소" class="btn btn-warning"
+						onclick="cancelOrder(${orders.orderNum })"></th>
 				</c:if>
 				<c:if test="${orders.status eq '배송중' or orders.status eq '배송완료'}">
-					<td><input type="button" value="교환/환불 요청"
-						class="btn btn-warning" onclick="refundOrder(${orders.orderNum })"></td>
+					<th><input type="button" value="교환/환불 요청"
+						class="btn btn-warning" onclick="refundOrder(${orders.orderNum })"></th>
 				</c:if>
 				<c:if
 					test="${orders.status ne '배송중' and orders.status ne '배송완료'and orders.status ne '결재 완료'and orders.status ne '배송전'}">
-					<td></td>
+					<th></th>
 				</c:if>
 			</tr>
 

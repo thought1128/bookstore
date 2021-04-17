@@ -2,8 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ include file="./../../book_nav.jsp"%>
     
-    /board/read.jsp
-    
+<title>/board/read.jsp</title>
+<p></p>
 <table class="table mx-auto" style="width: 700px">
 	<tr>
 		<td>제목</td>
@@ -35,7 +35,8 @@
 		<c:if test="${sessionScope.loginInfo.id=='admin'}">
 			<a class="btn btn-secondary" href="delete.br?boardNum=${board.boardNum }">관리자권한삭제</a>
 		</c:if>
-		
+			<a class="btn btn-secondary" href="list.br">목록</a>
 		</td>
 	</tr>
 </table>
+<%@ include file="./../../footer.jsp"%>

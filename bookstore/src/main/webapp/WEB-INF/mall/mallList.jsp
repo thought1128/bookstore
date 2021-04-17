@@ -2,14 +2,14 @@
     pageEncoding="UTF-8"%>
 <%@ include file="./../../book_nav.jsp"%>
 
-=> mall\mallList.jsp<br>
-
+<title>mall\mallList.jsp</title>
+<p></p>
 <h2 align="center">주문 내역</h2>
-<table class="table mx-auto"  style="max-width: 900px">
+<table class="table mx-auto" style="max-width: 900px;">
 	<tr>
-		<td colspan="8" align="center">
+		<th colspan="8" align="center">
 			주문자 : ${sessionScope.loginInfo.id }
-		</td>
+		</th>
 	</tr>
 	<tr>
 		<th>상품 번호 </th>
@@ -23,9 +23,9 @@
 	</tr>
 	<c:forEach items="${sessionScope.shoplists }" var="shInfo">
 		<tr>
-			<td >${shInfo.isbn}</td>
-			<td ><a href="detail.pv?isbn=${shInfo.isbn}">${shInfo.title }</a></td>
-			<td> 
+			<th >${shInfo.isbn}</th>
+			<th ><a href="detail.pv?isbn=${shInfo.isbn}">${shInfo.title }</a></th>
+			<th> 
 			<form action="add.mall" method="post">
 				<input type="hidden" name="isbn" value="${shInfo.isbn}">
 				<input type="hidden" name="reCount" value="y">
@@ -36,21 +36,19 @@
 				  </div>
 				</div>
 			</form>
-			
-
-			</td>
-			<td >${shInfo.price }</td>
-			<td >${shInfo.point }</td>
-			<td >${shInfo.price * shInfo.oqty }</td>
-			<td >${shInfo.point * shInfo.oqty}</td>
-			<td ><a href="remove.mall?isbn=${shInfo.isbn}">삭제</a></td>
+			</th>
+			<th >${shInfo.price }</th>
+			<th >${shInfo.point }</th>
+			<th >${shInfo.price * shInfo.oqty }</th>
+			<th >${shInfo.point * shInfo.oqty}</th>
+			<th ><a href="remove.mall?isbn=${shInfo.isbn}">삭제</a></th>
 		</tr>		
 	</c:forEach>
 	<tr>
-		<td colspan="8" align="center">
+		<th colspan="8" align="center">
 			총금액 : ${totalAmount} &nbsp&nbsp&nbsp
 			총포인트 : ${totalPoint}
-		</td>
+		</th>
 	</tr>
 	
 </table>
@@ -75,5 +73,6 @@
 	 		</div>
 	</form>
 </div>
-
+<p></p>
+<%@ include file="./../../footer.jsp"%>
 

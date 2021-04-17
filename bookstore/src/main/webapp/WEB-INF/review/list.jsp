@@ -5,7 +5,7 @@
 
 
 
-<br><h3 class="text-center">내가 쓴 리뷰</h3><br>
+<br><h3 class="text-center">작성한 리뷰</h3><br>
 
 <table class="table mx-auto" style="max-width: 400px;" >
 	<tr>	
@@ -31,10 +31,8 @@
 			</td>
 		</tr>
 	</c:forEach>
-	<tr>
-		<td class="text-center" colspan="6"> ${pageInfo.pagingHtml } </td>
-	</tr>
 </table>
-
-	
+<center>${pageInfo.pagingHtml }</center>
+<p></p>
+<%@ include file="./../../footer.jsp"%>
 

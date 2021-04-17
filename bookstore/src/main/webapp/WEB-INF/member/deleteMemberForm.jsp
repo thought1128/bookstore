@@ -24,18 +24,11 @@
 <%@ include file="./memberTop.jsp"%>
 <h1 align="center">회원 탈퇴</h1>
 <form action="deleteMember.me" method="post">
-	<div class="row">
-		<div class="col-md-5"></div>
-		<div class="col-md-2">
-			<input type="password" name="password" class="form-control" placeholder="비밀번호를 입력해 주세요">
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-5"></div>
-		<div class="col-md-1">
-			<input type="submit" value="탈퇴" class="btn btn-primary">
-		</div>
-	</div>
-	
+<div class="input-group mb-3" style="width: 400px; float:none; margin:0 auto">
+  <input type="password" name="password" class="form-control" placeholder="비밀번호를 입력해 주세요" aria-label="Recipient's username" aria-describedby="button-addon2">
+  <div class="input-group-append">
+    <input class="btn btn-outline-secondary" type="submit" value="탈퇴">
+  </div>
+</div>
 </form>
 <%@ include file="./../../footer.jsp"%>

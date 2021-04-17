@@ -3,8 +3,8 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ include file="./../../book_nav.jsp"%>
     
-    /review/read.jsp
-
+<title>/review/read.jsp</title>
+<p></p>
 
 <table class="table mx-auto" style="width: 700px">
 
@@ -55,3 +55,5 @@
 		</td>
 	</tr>
 </table>
+<p></p>
+<%@ include file="./../../footer.jsp"%>

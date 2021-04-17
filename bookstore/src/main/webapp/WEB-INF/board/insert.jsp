@@ -3,8 +3,8 @@
 <%@ include file="./../../book_nav.jsp"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>  
 
-    /board/insert.jsp
-
+<title>/board/insert.jsp</title>
+<p>
 <form:form commandName="board" action="insert.br" method="post">
 	<input type="hidden" name="memberNum" value="${sessionScope.loginInfo.memberNum }">
 	<input type="hidden" name="name" value="${sessionScope.loginInfo.name }">

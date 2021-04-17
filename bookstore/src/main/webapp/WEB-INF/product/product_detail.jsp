@@ -3,6 +3,7 @@
 
 
 <title>product_detail.jsp</title>
+<p></p>
 <fmt:parseDate var="parseDate" value="${product.publishedDate}" pattern="yyyy-MM-dd"/>
 <fmt:formatDate var="fmtDate" value="${parseDate}" pattern="yyyy년 MM월 dd일"/>
 <div class="container">
@@ -37,7 +38,7 @@
     </div>
   </div>
 </div>
-<br><br>
+<p></p>
 
 <form action="detail.pv" method="get">
 <input type="hidden" name="isbn" value="${product.isbn }">
@@ -48,15 +49,16 @@
 			<option value="name" ${param.whatColumn=='name'?'selected':''}>작성자</option>
 			<option value="subject" ${param.whatColumn=='subject'?'selected':''}>제목</option>
 		</select>
+		&nbsp;
 		<div class="input-group-append">
-			<input class="form-control" type="text" name="keyword" value="${param.whatColumn!=''?param.keyword:''}">
+			<input class="form-control" type="text" name="keyword" value="${param.whatColumn!=''?param.keyword:''}" placeholder="Search">
 		</div>
+		&nbsp;
 		<div class="input-group-append">
-			<input class="btn btn-outline-primary"
-				type="submit" value="검색">
+			<input class="btn btn-outline-primary" type="submit" value="검색">
 		</div>
 		<div class="input-group-append mr-auto">
-			&nbsp&nbsp&nbsp 
+			&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;
 		</div>
 		<div class="input-group-append">
 			<a class="btn btn-outline-primary" href="insert.rv?isbn=${product.isbn}">리뷰하기</a>
@@ -97,10 +99,9 @@
 			<td>${r.readCount}</td>
 		</tr>
 	</c:forEach>
-	<tr>
-		<td colspan="5" class="text-center">
-			${pageInfo.pagingHtml }
-		</td>
-	</tr>
+
 </table>
+<center>${pageInfo.pagingHtml}</center>
 </div>
+<p></p>
+<%@ include file="./../../footer.jsp"%>

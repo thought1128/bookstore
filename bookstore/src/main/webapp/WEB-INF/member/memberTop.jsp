@@ -12,8 +12,8 @@
 			<a class="nav-link active" href="updateMemberInfo.me">회원정보 수정</a>
 			<a class="nav-link active" href="deleteMember.me">회원탈퇴</a>
 			<a class="nav-link active" href="cancelOrderList.me">취소/반품/교환/환불 내역</a>
-			<a class="nav-link active" href="list.br?whatColumn=name&keyword=${sessionScope.loginInfo.name }">내가 쓴 글</a>
-			<a class="nav-link active" href="list.rv?whatColumn=memberNum&keyword=${sessionScope.loginInfo.memberNum}">나의 리뷰2</a>
+			<a class="nav-link active" href="list.br?whatColumn=name&keyword=${sessionScope.loginInfo.name }">질문내역</a>
+			<a class="nav-link active" href="list.rv?whatColumn=memberNum&keyword=${sessionScope.loginInfo.memberNum}">작성한 리뷰 목록</a>
 			
 		</div>
 	</div>

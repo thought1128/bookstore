@@ -5,20 +5,20 @@
 <link rel="stylesheet" href="resources/product/css/product.css"/>
 <!-- <script src="resources/product/js/product.js" defer="defer"></script> -->
 <!-- productbar -->
-
+<p>
 <div class="product__bar">
 	<ul class="nav justify-content-center">
 		<li class="nav-item">
-    		<button class="nav-link btn" onclick="location.href='${currenturi}'">전체</button>
+    		<button class="nav-link btn" onclick="location.href='${currenturi}'" style="font-size: 1.2rem;">전체</button>
   		</li>
 		<c:forEach var="classify" items="${classifyList}">
 			<li class="nav-item">
-				<button type="button" class="nav-link btn" onclick="location.href='?whatColumn=classify&keyword=${classify.classify}'">${classify.classify}</button>
+				<button type="button" class="nav-link btn" style="font-size: 1.2rem;" onclick="location.href='?whatColumn=classify&keyword=${classify.classify}'">${classify.classify}</button>
   			</li>
 		</c:forEach>
 	</ul>
 </div>
-
+<p>
 <!-- product -->
 <div class="product__container">
 	<div class="row row-cols-1 row-cols-md-2 g-4 d-flex justify-content-center">
