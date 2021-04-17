@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="orders.model.Orders">
+
+	<select id="OrderDetail" resultType="MyOrders">
+		select * from orders
+		where member_num = #{memberNum}
+	</select>
+
+	<select id="GetTotalCount" resultType="int">
+		select count(*) from orders
+		where status like #{keyword}
+	</select>
+	<select id="GetOrderMemberList" resultType="MyOrders">
+		select * from orders
+		where status like #{keyword}
+	</select>
+	
+	<insert id="Insert" parameterType="myOrders">
+		insert into orders 
+		(order_num, member_num, name, address, phone_num, track_num, status, total_price, total_point)
+		values
+		(order_seq.nextval, #{memberNum},#{name}, #{address}, #{phoneNum}, #{trackNum}, #{status}, #{totalPrice}, #{totalPoint})
+				
+	    <selectKey resultType="int" keyProperty="orderNum" order="AFTER">
+	        SELECT order_seq.currval from dual  
+	    </selectKey>
+	</insert>
+	
+		<select id="GetOrderByMember" resultType="MyOrders">
+		select * from orders
+		where member_num = #{memberNum}
+		order by order_num desc
+	</select>
+	
+	<select id="GetOnDeliveryCount" resultType="int">
+		select count(*) from orders
+		where member_num = #{memberNum} and status = '배송중'
+	</select>
+	
+	<select id="GetBeforeDeliveryCount" resultType="int">
+		select count(*) from orders
+		where member_num = #{memberNum} and status = '배송전' or status = '결재 완료'
+	
+	</select>
+	<select id="GetAfterDeliveryCount" resultType="int">
+		select count(*) from orders
+		where member_num = #{memberNum} and status = '배송완료'
+	</select>
+	
+	<select id="GetCancelDeliveryCount" resultType="int">
+		select count(*) from orders
+		where member_num = #{memberNum} and status = '고객 주문취소' or status = '관리자 주문취소'
+	
+	</select>
+	
+	<select id="GetCancelListByMemberNum" resultType="MyOrders">
+		select * from orders
+		where member_num = #{memberNum} and status = '고객 주문취소' or status = '관리자 주문취소' or status = '환불요청' or status = '교환요청' or status = '환불완료소' or status = '교환완료' or status = '고객 주문취소 요청'
+		order by order_num desc
+	
+	</select>
+	<update id="CancelOrder">
+		update orders set
+		status = '고객 주문취소 요청', reason = #{reason} 
+		where order_num =#{orderNum}
+	
+	</update>
+	
+	<update id="UpdateStatus">
+		update orders set
+		status = #{status}, reason = #{reason} 
+		where order_num =#{orderNum}
+	</update>
+	
+	<update id="InsertTrackNum">
+		update orders set
+		status = '배송중', track_num = #{trackNum}
+		where order_num =#{orderNum}
+	</update>
+	
+	
+</mapper>

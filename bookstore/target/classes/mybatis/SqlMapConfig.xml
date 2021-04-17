@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<settings>
+		<!-- Camel Case, Snake Case로만 다를 경우 
+        	resultMap을 안 써도 이 코드 쓰면 알아서 바꿔줌 -->
+		<setting name="mapUnderscoreToCamelCase" value="true"/>
+	</settings>
+
+    <typeAliases>
+        <typeAlias type="board.model.Board" alias="MyBoard"/>
+        <typeAlias type="review.model.Review" alias="MyReview"/>
+        <typeAlias type="admin.model.Product" alias="MyProduct"/>
+        <typeAlias type="product.model.ProductBean" alias="ProductBean"/>
+        <typeAlias alias="MyMember" type="member.model.Member"/>
+		<typeAlias alias="MyOrders" type="orders.model.Orders"/>
+		<typeAlias alias="MyOProduct" type="admin.model.OProduct"/>
+    </typeAliases>
+    
+    <mappers>
+        <mapper resource="mybatis/product.xml"/>
+        <mapper resource="mybatis/board.xml"/>
+        <mapper resource="mybatis/review.xml"/>
+        <mapper resource="mybatis/member.xml"/>
+		<mapper resource="mybatis/orders.xml"/>			
+		<mapper resource="mybatis/oproduct.xml"/>
+    </mappers>
+      
+</configuration>

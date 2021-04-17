@@ -1,0 +1,72 @@
+@charset "UTF-8";
+:root {
+  /* Color */
+  --color-white: #ffffff;
+  --color-light-white: #eeeeee;
+  --color-dark-white: #bdbdbd;
+  --color-green: #BEE8CB;
+  --color-dark-green: #80D130;
+  --color-black: #4d4d4d;
+  --color-dark-grey: #4d4d4d;
+  --color-grey: #616161;
+  --color-light-grey: #7c7979;
+  --color-blue: #73aace;
+  --color-yellow: #fff7d1;
+  --color-orange: #feb546;
+  --color-black: #000000;
+
+  /* Font size */
+  --font-large: 48px;
+  --font-medium: 28px;
+  --font-regular: 18px;
+  --font-small: 16px;
+  --font-micro: 14px;
+
+  /* Font weight */
+  --weight-bold: 700;
+  --weight-semi-bold: 600;
+  --weight-regular: 400;
+
+  /* Size */
+  --size-border-radius: 4px;
+
+  /* Annimation */
+  --animation-duration: 700ms;
+}
+a {
+  text-decoration: none;
+}
+.card.invisible {
+  display: none;
+}
+.product__container.anim-out {
+  opacity: 0;
+  transform: scale(0.96) translateY(40px);
+}
+.product__container {
+  transition: all var(--animation-duration) ease-out;
+}
+button {
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.nav-link btn {
+  border: 1px solid var(--color-dark-white);
+  border-radius: var(--size-border-radius);
+  font-size: var(--font-regular);
+  padding: 8px 48px;
+  position: relative;
+}
+
+.nav-link btn.selected,
+.nav-link btn {
+  background-color: var(--color-green);
+  color: var(--color-white);
+}
+.product__bar{
+  margin-top: 5px;
+  margin-bottom: 5px;
+}

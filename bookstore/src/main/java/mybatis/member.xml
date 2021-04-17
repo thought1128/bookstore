@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="member.model.Member">
+	<select id="Login" resultType="MyMember">
+		select * from member
+		where id = #{id}
+	
+	</select>
+
+	<insert id="MemberJoin">
+		insert into member values(member_seq.nextval,#{id},#{password},#{name},#{phoneNum},#{email},#{address},'test',0)
+	
+	</insert>
+
+	<select id="GetId" resultType="String">
+		select id from member
+		where name = #{name} and email = #{email}
+	</select>
+	
+	<select id="GetPassword" resultType="String">
+		select password from member
+		where id = #{id} and email = #{email}
+	</select>
+	
+	<delete id="DeleteMember">
+		delete from member
+		where id = #{id}
+	
+	</delete>
+	
+	<update id="UpdateMember">
+		update member set
+		id = #{id}, password = #{password}, name = #{name}, phone_num = #{phoneNum}, email = #{email}, address = #{address} where member_num = #{memberNum}
+	
+	</update>
+	
+	<select id="CheckId" resultType="int">
+		select count(*) from member
+		where id = #{id}
+	</select>
+	<select id="CheckEmail" resultType="int">
+		select count(*) from member
+		where email = #{email}
+	</select>
+	
+	<select id="GetMemberList" resultType="MyMember">
+		select * from member
+		<if test="whatColumn == 'id'">
+			where id like #{keyword}
+		</if>
+		<if test="whatColumn == 'name'">
+			where name like #{keyword}
+		</if>
+		order by member_num asc
+	</select>
+	
+	<select id="GetTotalCount" resultType="int">
+		select count(*) from member
+		<if test="whatColumn == 'id'">
+			where id like #{keyword}
+		</if>
+		<if test="whatColumn == 'name'">
+			where name like #{keyword}
+		</if>
+		order by member_num asc
+	</select>
+	
+	<select id="GetMemberDetail" resultType="MyMember">
+		select * from member
+		where member_num = #{memberNum}
+	</select>
+</mapper>

@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="admin.model.Product">
+	<select id="GetTotalCount" resultType="int"
+		parameterType="hashmap">
+		select count(*) from product
+		<if test="whatColumn == 'isbn'">
+			where isbn like #{keyword}
+		</if>
+		<if test="whatColumn == 'title'">
+			where title like #{keyword}
+		</if>
+		<if test="whatColumn == 'status'">
+			where status like #{keyword}
+		</if>
+		<if test="whatColumn == 'classify'">
+			where classify like #{keyword}
+		</if>
+		<if test="whatColumn == 'promotions'">
+			where promotions like #{keyword}
+		</if>
+		<if test="whatColumn == 'total'">
+			where isbn like #{keyword} or title like #{keyword} or writer like #{keyword} or publisher like #{keyword} or price like #{keyword} or point like #{keyword} or qty like #{keyword} or status like #{keyword} or classify like #{keyword} or promotions like #{keyword}
+		</if>
+	</select>
+
+	<select id="GetProductList" resultType="MyProduct">
+		select * from product
+		<if test="whatColumn == 'title'">
+			where title like #{keyword}
+		</if>
+		<if test="whatColumn == 'status'">
+			where status like #{keyword}
+		</if>
+		<if test="whatColumn == 'classify'">
+			where classify like #{keyword}
+		</if>
+		<if test="whatColumn == 'promotions'">
+			where promotions like #{keyword}
+		</if>
+		<if test="whatColumn == 'total'">
+			where isbn like #{keyword} or title like #{keyword} or writer like #{keyword} or publisher like #{keyword} or price like #{keyword} or point like #{keyword} or qty like #{keyword} or status like #{keyword} or classify like #{keyword} or promotions like #{keyword}
+		</if>
+		order by isbn desc
+	</select>
+	
+	<select id="getProductList" resultType="ProductBean">
+		select * from product
+	</select>
+	
+	<select id="GetProductIsbn" resultType="ProductBean">
+		select * from product
+		where isbn=#{isbn}
+	</select>
+	
+	<select id="GetSearchClassifyProduct" resultType="ProductBean">
+		select * from (select * from product where promotions='T' and title like #{search} or writer like #{search} or publisher like #{search} or classify like #{search}) where classify = #{keyword)
+	</select>
+	
+	<select id="GetProductGroupByClassify" resultType="product.model.ProductClassifyBean">
+		select classify from product group by classify
+	</select>
+	
+	<insert id="InsertProduct">
+		insert into
+		product(isbn, title, writer, publisher, published_date, price, point, qty, status,
+		image, classify, promotions)
+		values(#{isbn},#{title},
+		#{writer}, #{publisher}, #{publishedDate}, #{price}, #{point}, #{qty},
+		#{status}, #{image}, #{classify}, #{promotions})
+	</insert>
+	
+	<select id="GetOne" resultType="MyProduct">
+		select * from product
+		where isbn = #{isbn}
+	</select>
+	
+	<update id="PopStock">
+		update product set qty = qty - #{oqty} 
+		where isbn = #{isbn}
+	</update>
+		<update id="UpdateProduct">
+		update product set 
+		title = #{title},writer = #{writer},publisher= #{publisher}, published_date=#{publishedDate},
+		price=#{price}, point=#{point}, qty=#{qty},status=#{status},
+		image=#{image}, classify=#{classify},promotions= #{promotions}
+		where isbn=#{isbn}
+	</update>
+
+	<select resultType="MyProduct" id="GetData">
+		select * from product
+		where isbn = #{isbn}
+	</select>
+
+	<select resultType="MyProduct" id="GetOneProduct">
+		select * from product where
+		isbn = #{isbn}
+	</select>
+
+	<delete id="DeleteProduct">delete from product where isbn=#{isbn} </delete>
+
+
+
+	<select id="GetProductCount" resultType="int"> 
+		select count(*) from product where promotions='T'
+		<if test="whatColumn == 'classify'">
+			and classify like #{keyword}
+		</if>
+	</select>
+
+		<select id="GetSearchProductCount" resultType="int" parameterType="hashmap"> 
+		select count(*) from (select * from product where promotions='T' and title like #{search} or writer like #{search} or publisher like #{search} or classify like #{search})
+		<if test="whatColumn == 'title'">
+			where title like #{search}
+		</if>
+		<if test="whatColumn == 'writer'">
+			where writer like #{search}
+		</if>
+		<if test="whatColumn == 'publisher'">
+			where publisher like #{search}
+		</if>
+		<if test="whatColumn == 'classify'">
+			where classify like #{search}
+		</if>
+		
+		<if test="whatColumn2 == 'classify'">
+			where classify = #{keyword}
+		</if>
+		
+		<if test="whatColumn3 == 'title'">
+			and title like #{search}
+		</if>
+		<if test="whatColumn3 == 'writer'">
+			and writer like #{search}
+		</if>
+		<if test="whatColumn3 == 'publisher'">
+			and publisher like #{search}
+		</if>
+		<if test="whatColumn3 == 'classify'">
+			and classify like #{search}
+		</if>
+	</select>
+	
+	<select id="GetPagingProductList" resultType="ProductBean">
+		select * from product where promotions='T'
+		<if test="whatColumn == 'classify'">
+			and classify = #{keyword}
+		</if>
+	</select>
+	
+	<select id="GetSearchPagingProductList" resultType="ProductBean">
+		select * from (select * from (select * from product where promotions='T') where title like #{search} or writer like #{search} or publisher like #{search} or classify like #{search})
+		<if test="whatColumn == 'title'">
+			where title like #{search}
+		</if>
+		<if test="whatColumn == 'writer'">
+			where writer like #{search}
+		</if>
+		<if test="whatColumn == 'publisher'">
+			where publisher like #{search}
+		</if>
+		<if test="whatColumn == 'classify'">
+			where classify like #{search}
+		</if>
+		<if test="whatColumn2 == 'classify'">
+			where classify = #{keyword}
+			<if test="whatColumn3 == 'title'">
+				and title like #{search}
+			</if>
+			<if test="whatColumn3 == 'writer'">
+				and writer like #{search}
+			</if>
+			<if test="whatColumn3 == 'publisher'">
+				and publisher like #{search}
+			</if>
+			<if test="whatColumn3 == 'classify'">
+				and classify like #{search}
+			</if>
+		</if>
+	</select>
+	
+	<select id="GetSearchProductGroupByClassify" resultType="product.model.ProductClassifyBean">
+		select classify from (select * from product where promotions='T' and title like #{search} or writer like #{search} or publisher like #{search} or classify like #{search})
+		<if test="whatColumn == 'title'">
+			where title like #{search}
+		</if>
+		<if test="whatColumn == 'writer'">
+			where writer like #{search}
+		</if>
+		<if test="whatColumn == 'publisher'">
+			where publisher like #{search}
+		</if>
+		<if test="whatColumn == 'classify'">
+			where classify like #{search}
+		</if>
+		
+		<if test="whatColumn3 == 'title'">
+			where title like #{search}
+		</if>
+		<if test="whatColumn3 == 'writer'">
+			where writer like #{search}
+		</if>
+		<if test="whatColumn3 == 'publisher'">
+			where publisher like #{search}
+		</if>
+		<if test="whatColumn3 == 'classify'">
+			where classify like #{search}
+		</if>
+		group by classify
+	</select>
+	
+	
+	<update id="UpdateQty">
+		update product set
+		qty = qty + #{oqty} 
+		where isbn = #{isbn}
+	
+	</update>
+	
+</mapper>

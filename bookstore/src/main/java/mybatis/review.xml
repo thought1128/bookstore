@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="review.model.Review">
+
+	<select id="getOne" resultType="MyReview">
+		select * from review 
+		where review_num = #{reviewNum}
+	</select>	
+
+	<select id="getTotalCount" resultType="int">
+		select count(*) from review
+		where isbn = #{isbn}
+		
+		<if test="whatColumn == 'name'">
+			and name like #{keyword}
+		</if>
+		<if test="whatColumn == 'subject'">
+			and subject like #{keyword}
+		</if>
+	</select>
+	
+	<select id="getDataList" resultType="MyReview">
+		select * from review
+		where isbn = #{isbn}
+		
+		<if test="whatColumn == 'name'">
+			and name like #{keyword}
+		</if>
+		<if test="whatColumn == 'subject'">
+			and subject like #{keyword}
+		</if>
+		<if test="whatColumn == 'product'">
+			and title like #{keyword}
+		</if>
+		order by ref desc, re_step asc
+	</select>
+	
+	
+	<select id="getMyTotalCount" resultType="int">
+		select count(*) from review
+		where member_num = #{keyword}
+	</select>
+	
+	<select id="getMyDataList" resultType="MyReview">
+		select * from review
+		where member_num = #{keyword}
+		order by ref desc, re_step asc
+	</select>
+	
+	<!-- readCount는 삽입하지 아니함. REF는 currentValue-->
+	<insert id="insert">
+		insert into review
+		(review_num, member_num, name, isbn, title, subject, reg_date, mod_date, ref, re_step, re_level, content, ip, image)
+		values(review_seq.nextval, #{memberNum}, #{name}, #{isbn}, #{title}, #{subject}, sysdate, sysdate, review_seq.CURRVAL, #{reStep}, #{reLevel}, #{content}, #{ip}, #{image})
+	</insert>
+	
+		<!-- 변경할 내용만 삽입 -->
+	<update id="update">
+		update review set 
+		ip = #{ip},
+		content = #{content},
+		subject = #{subject}, 
+		mod_date = sysdate,
+		image = #{image}
+		where review_num = #{reviewNum}
+	</update>
+	
+	<!-- readCount는 삽입하지 아니함. REF는 #{ref}-->
+	<insert id="insertReply">
+		insert into review 
+		(review_num, member_num, name, isbn, title, subject, reg_date, mod_date, ref, re_step, re_level, content, ip, image)
+		values(review_seq.nextval, #{memberNum}, #{name}, #{isbn}, #{title}, #{subject}, sysdate, sysdate, #{ref}, #{reStep}, #{reLevel}, #{content}, #{ip}, #{image})
+	</insert>	
+	
+	<update id="changeSteps">
+		update review set re_step = re_step + 1 where ref = #{ref} and re_step > #{reStep}
+	</update>
+	
+	<delete id="delete">
+		delete from review where review_num = #{reviewNum}
+	</delete>
+	
+	<update id="hitReview">
+		update review set read_count = read_count + 1 where review_num= #{reviewNum}
+	</update>
+	
+	<select id="getMyList" resultType="MyReview">
+		select * from review
+		where member_num = #{memberNum}
+		order by ref desc, re_step asc
+	</select>
+	
+</mapper>
