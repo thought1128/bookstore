@@ -16,7 +16,7 @@
 	<tr>
 		<td width="120">isbn</td>
 		<td width="180">
-	<input type="text" name="isbn" value="${product.isbn}">
+	<input type="text" name="isbn" value="${product.isbn}" readonly>
 	<form:errors cssClass="err" path="isbn" />
 	</td>
 	</tr>
@@ -86,7 +86,7 @@
 	<tr>
 		<td width="120">책 이미지</td>
 		<td width="180">
-		<img src="<%=request.getContextPath() %>/resources/${product.image }" width="100px" height="100px">
+		<img src="<%=request.getContextPath() %>/resources/book_images/${product.image }" width="100px" height="100px">
 		
 		<input type="file" name="upload"> 
 		<input type="hidden" name="upload2" value="${product.image }">

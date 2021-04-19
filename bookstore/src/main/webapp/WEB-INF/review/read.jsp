@@ -48,6 +48,7 @@
 			<c:if test="${sessionScope.loginInfo.memberNum==review.memberNum}">
 				<a class="btn btn-secondary" href="update.rv?reviewNum=${review.reviewNum}">수정</a>
 				<a class="btn btn-secondary" href="delete.rv?reviewNum=${review.reviewNum }">삭제</a>				
+				<a class="btn btn-secondary" href="detail.pv?isbn=${review.isbn }">상품</a>
 			</c:if>
 			<c:if test="${sessionScope.loginInfo.id=='admin'}">
 				<a class="btn btn-secondary" href="delete.rv?reviewNum=${review.reviewNum }">관리자권한삭제</a>							

@@ -101,6 +101,8 @@ public class MemberJoinController {
 					
 					
 					else {
+						System.out.println("------------member-------");
+						System.out.println(member.toString());
 						int cnt = mdao.joinMember(member);
 						if (cnt == 1) {
 

@@ -46,19 +46,19 @@
 		
 		<tr>
 			<td>상품가격</td>
-			<td><input type="text" name="price" value="${product.price }">원
+			<td><input type="text" name="price" <c:if test="${product.price == null}">value="0"</c:if><c:if test="${product.price != null}">value="${product.price}"</c:if>>원 
 				<form:errors cssClass="err" path="price" /></td>
 		</tr>
 		<tr>
 			<td>적립포인트</td>
-			<td><input type="text" name="point" value="${product.point }">
+			<td><input type="text" name="point" <c:if test="${product.point == null}">value="0"</c:if><c:if test="${product.point != null}">value="${product.point}"</c:if>>
 				<form:errors cssClass="err" path="point" /></td>
 		</tr>
 		
 		
 		<tr>
 			<td>재고수량</td>
-			<td><input type="text" name="qty" value=" ${product.qty }">
+			<td><input type="text" name="qty" <c:if test="${product.qty == null}">value="0"</c:if><c:if test="${product.qty != null}">value="${product.qty}"</c:if>>
 				<form:errors cssClass="err" path="qty" /></td>
 		</tr>
 		

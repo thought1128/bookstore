@@ -48,40 +48,40 @@
 			<h3>팀원 김동욱, 김민우, 배석진, 임혜진</h3>
 			<div class="abouts">
 				<div class="about">
-					<img src="resources/main/id/ID_Photo.png" alt="People" class="about__avatar" />
+					<img src="resources/main/id/ID_Photo.jpg" alt="People" class="about__avatar" />
 					<div class="about__speech-bubble">
 						<p>자기 소개 0123456789 0123456789 0123456789 0123456789 0123456789 0123456789 0123456789 0123456789</p>
 						<p class="name">
-							<a href="">김동욱</a> / 중앙
+							<a href="#">김동욱</a>
 						</p>
 					</div>
 				</div>
 				<div class="about">
 					<div class="about__speech-bubble">
-						<p>팀 프로젝트를 통해서 MVC패턴에 대해서 보다 명확하게 이해할 수 있었고 부족한 점을 채워나가면서 앞으로 개발자로써 나아가야할 방향에 대해서 다시한번 깊게 생각할 수 있는 기회가 되어서 좋았습니다.</p>
+						<p>팀 프로젝트를 통해서 MVC패턴에 대해서 보다 명확하게 이해할 수 있었고 부족한 점을 채워나가면서 앞으로<br> 개발자로써 나아가야할 방향에  대해서 다시한번 깊게 생각할 수 있는 기회가 되어서 좋았습니다.</p>
 						<p class="name">
-							<a href="">김민우</a> / 중앙
-						</p>
-					</div>
-					<img src="resources/main/id/ID_Photo.png" alt="People" class="about__avatar" />
-				</div>
-				<div class="about">
-					<img src="resources/main/id/ID_Photo.png" alt="People" class="about__avatar" />
-					<div class="about__speech-bubble">
-						<p>자기 소개 0123456789 0123456789 0123456789 0123456789 0123456789 0123456789 0123456789 0123456789</p>
-						<p class="name">
-							<a href="">배석진</a> / 중앙
-						</p>
-					</div>
-				</div>
-				<div class="about">
-					<div class="about__speech-bubble">
-						<p>자기 소개 0123456789 0123456789 0123456789 0123456789 0123456789 0123456789 0123456789 0123456789</p>
-						<p class="name">
-							<a href="">임혜진</a> / 중앙
+							<a href="#">김민우</a>
 						</p>
 					</div>
 					<img src="resources/main/id/ID_Photo2.jpg" alt="People" class="about__avatar" />
+				</div>
+				<div class="about">
+					<img src="resources/main/id/ID_Photo3.jpg" alt="People" class="about__avatar" />
+					<div class="about__speech-bubble">
+						<p>자기 소개 0123456789 0123456789 0123456789 0123456789 0123456789 0123456789 0123456789 0123456789</p>
+						<p class="name">
+							<a href="#">배석진</a>
+						</p>
+					</div>
+				</div>
+				<div class="about">
+					<div class="about__speech-bubble">
+						<p>자기 소개 0123456789 0123456789 0123456789 0123456789 0123456789 0123456789 0123456789 0123456789</p>
+						<p class="name">
+							<a href="#">임혜진</a>
+						</p>
+					</div>
+					<img src="resources/main/id/ID_Photo4.jpg" alt="People" class="about__avatar" />
 				</div>
 			</div>
 		</div>
@@ -207,7 +207,7 @@
 	<!-- Contact -->
 	<section id="contact" class="section">
 		<h1 class="contact__title">감사합니다</h1>
-		<h2 class="contact__email">김동욱 김동욱@gmail.com<br>김민우 thought1128@gmail.com<br>배석진 배석진@gmail.com<br>임혜진 임혜진@gmail.com</h2>
+		<h2 class="contact__email">김동욱 gom0109@gmail.com<br>김민우 thought1128@gmail.com<br>배석진 infoqoch@gmail.com<br>임혜진 hzeen0301@gmail.com</h2>
 		<div class="contact__links">
 			<a href="https://github.com/thought1128/bookstore" target="_blank"> <i
 				class="fab fa-github"></i>

@@ -124,7 +124,7 @@
 	<div class="row">
 		<div class="col-md-5"></div>
 		<div class="col-md-2">
-			전화번호 <input type="number" name="phoneNum" value="${member.phoneNum }"
+			전화번호 <input type="text" name="phoneNum" value="${member.phoneNum }"
 				class="form-control">
 			<form:errors cssClass="err" path="phoneNum" />
 		</div>

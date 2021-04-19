@@ -59,8 +59,8 @@ public class MemberFindPasswordController {
 		}else {
 			String setfrom = "bookstore603@gmail.com";
 			String tomail = email;
-			String title = "잃어버린 비밀번호 입니다.";
-			String content = password;
+			String title = "[중앙문고]."+id+"님의 문의사항에 대한 답변입니다";
+			String content = "회원님의 문의하신 비밀번호는 다음과 같습니다."+password;
 
 			try {
 				MimeMessage message = mailSender.createMimeMessage();

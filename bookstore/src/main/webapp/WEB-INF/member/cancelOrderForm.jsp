@@ -33,7 +33,7 @@
 		</tr>
 		<c:forEach items="${list }" var="oproduct">
 			<tr>
-				<td><a href="#">${oproduct.title}</a></td>
+				<td><a href="detail.pv?isbn=${oproduct.isbn}">${oproduct.title}</a></td>
 				<td>${oproduct.classify}</td>
 				<td>${oproduct.writer}</td>
 				<td>${oproduct.publisher}</td>

@@ -5,11 +5,11 @@
 <div class="product__bar">
 	<ul class="nav justify-content-center">
 		<li class="nav-item">
-			<button type="button" class="nav-link btn" onclick="location.href='search.pv?search=${search}&whatColumn=${whatColumn3}'">검색결과</button>
+			<button type="button" class="nav-link btn" style="font-size: 1.2rem;" onclick="location.href='search.pv?search=${search}&whatColumn=${whatColumn3}'">검색결과</button>
   		</li>
 		<c:forEach var="classify" items="${classifyList}">
 			<li class="nav-item">
-				<button type="button" class="nav-link btn" onclick="location.href='search.pv?search=${search}&whatColumn3=${whatColumn3}&whatColumn2=classify&keyword=${classify.classify}'">${classify.classify}</button>
+				<button type="button" class="nav-link btn" style="font-size: 1.2rem;" onclick="location.href='search.pv?search=${search}&whatColumn3=${whatColumn3}&whatColumn2=classify&keyword=${classify.classify}'">${classify.classify}</button>
   			</li>
 		</c:forEach>
 	</ul>
@@ -34,3 +34,5 @@
 	</div>
 </div>
 <center>${pageInfo.pagingHtml}</center>
+<p></p>
+<%@ include file="./../../footer.jsp"%>

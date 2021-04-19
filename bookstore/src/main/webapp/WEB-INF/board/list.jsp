@@ -14,8 +14,6 @@
 	}
 </script>
 
-<hr>
-
 <h1 class="text-center">QNA 게시판</h1>
 <br>
 <form action="list.br" method="get">

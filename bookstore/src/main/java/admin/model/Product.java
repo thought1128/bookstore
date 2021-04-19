@@ -36,7 +36,6 @@ public class Product {
 	@Size(message = "재고유무를 입력하세요", min=1)
 	private String status ;
 	
-	@Size(message = "이미지를 입력하세요", min=1)
 	private String image ;
 	
 	@Size(message = "분류를 입력하세요", min=1)
@@ -152,15 +151,10 @@ public class Product {
 	
 	public void setUpload(MultipartFile upload) {
 		this.upload = upload;
-		System.out.println("upload : "+upload);// ~~.jpg (X)
-		if(upload != null) {
-			System.out.println(upload.getName()); // upload
-			System.out.println(upload.getOriginalFilename()); // ~~.jpg  , 진짜 화일이름
-			this.image = upload.getOriginalFilename();  
-		}else {
-		    	
-				this.image=upload2;
-		}
+		System.out.println("upload:" + upload);
+		System.out.println("upload.getName():"+upload.getName());
+		System.out.println("upload.getOriginalFilename():"+upload.getOriginalFilename());
+		this.image = upload.getOriginalFilename();
 	}
 
 	public String getUpload2() {

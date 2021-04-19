@@ -61,11 +61,12 @@ public class MemberLoginController {
 		} else {
 			if (password.equals(member.getPassword())) {
 				session.setAttribute("loginInfo", member);
-				String destination = (String) session.getAttribute("destination");
 				if(member.getId().equals("admin")) {
-					destination = "adminMain.prd";
+					mav.setViewName("redirect:/adminMain.prd");
+					return mav;
 				}
-				mav.setViewName(destination);
+				mav.setViewName("redirect:/main.pv");
+				return mav;
 			} else {
 				pw.print("<script type='text/javascript'>");
 				pw.print("alert('잘못된 비밀번호입니다.')");
@@ -73,10 +74,7 @@ public class MemberLoginController {
 				pw.flush();
 				mav.setViewName(getPage);
 			}
-
 		}
-
-		mav.setViewName("redirect:/main.pv");
 		return mav;
 	}
 

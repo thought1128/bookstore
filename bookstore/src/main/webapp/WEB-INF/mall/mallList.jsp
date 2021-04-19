@@ -61,7 +61,7 @@
 	 </div>
 	 <div class="form-group">
 	   <label for="inputPhone">전화번호</label>
-	   <input type="number" class="form-control" id="inputPhone" name="phoneNum" value="${sessionScope.loginInfo.phoneNum}">
+	   <input type="text" class="form-control" id="inputPhone" name="phoneNum" value="${sessionScope.loginInfo.phoneNum}">
 	 </div>
 	 <div class="form-group">
 	   <label for="inputAddress">주소</label>

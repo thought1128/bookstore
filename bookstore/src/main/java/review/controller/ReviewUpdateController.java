@@ -67,6 +67,7 @@ public class ReviewUpdateController {
 	
 	@RequestMapping(value=command, method=RequestMethod.POST)
 	public String doAction(Model model, @Valid Review review, BindingResult bindingResult, HttpServletRequest request) {
+		
 		if(bindingResult.hasErrors()) {
 			System.out.println("에러발생");
 			model.addAttribute("review", review);

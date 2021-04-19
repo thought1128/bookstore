@@ -65,47 +65,53 @@ public class ProductUpdateController {
 			BindingResult result,
 			@RequestParam(value="targetDate", required = false) String targetDate) {
 		
-		if(result.hasErrors()) {
-			System.out.println("바인딩 ㅇ[러? ");
-			
-		}
-		System.out.println(targetDate);
-		product.setPublishedDate(targetDate);
-		
-		String image = product.getImage();
-		System.out.println("PUC image:" + image);
-		
-		String upload2 = product.getUpload2();
-		
-		String uploadPath = servletContext.getRealPath("/resources/book_images");
-		
-		
-		
 		ModelAndView mav = new ModelAndView();
+
+		
 		if (result.hasErrors()) {
 			mav.setViewName(getPage);
 			return mav;
 		}
+
+		System.out.println(targetDate);
+		product.setPublishedDate(targetDate);
+		
+		String image = product.getImage();
+		String upload2 = product.getUpload2();
+		System.out.println("----test----");
+		System.out.println("image :"+image);
+		System.out.println("upload2 :"+upload2);
+		boolean isNewImage = image==null||image.length()==0;
+		if(isNewImage) {
+			System.out.println("새로운 사진이 없다.");
+			product.setImage(upload2);
+		}
+		String uploadPath = servletContext.getRealPath("/resources/book_images");
+		
+				
 		System.out.println("----tostring-----");
 		System.out.println(product.toString());
 		int cnt = productDao.updateProduct(product);
+		
 		if(cnt==1) {
-			
-			File uploadFile = new File(uploadPath+"\\"+image);
-			File deleteFile = new File(uploadPath+"\\"+upload2);
-			deleteFile.delete();
-			
-			MultipartFile multi = product.getUpload();
-			
-			try {
-				multi.transferTo(uploadFile);
-			} catch (IllegalStateException e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
+			if(!isNewImage) {
+				MultipartFile multi = product.getUpload();
+				
+				File before = new File(uploadPath+"\\"+upload2);
+				File after = new File(uploadPath+"\\"+image);
+				before.delete();	
+				
+				
+				try {
+					multi.transferTo(after);
+				} catch (IllegalStateException e) {
+					e.printStackTrace();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 			}
-					
-			mav.setViewName(gotoPage);
+			
+			mav.setViewName("redirect:/detail.pv?isbn="+product.getIsbn());
 			return mav;
 		}
 		else {

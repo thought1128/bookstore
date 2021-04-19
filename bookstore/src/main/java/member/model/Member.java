@@ -128,8 +128,13 @@ public class Member {
 		this.point = point;
 	}
 
-	
-	
+	@Override
+	public String toString() {
+		return "Member [memberNum=" + memberNum + ", id=" + id + ", password=" + password + ", passwordCheck="
+				+ passwordCheck + ", name=" + name + ", phoneNum=" + phoneNum + ", email=" + email + ", address="
+				+ address + ", status=" + status + ", point=" + point + "]";
+	}
+
 	
 	
 }

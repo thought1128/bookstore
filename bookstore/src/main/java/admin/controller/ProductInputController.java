@@ -57,7 +57,7 @@ public class ProductInputController {
 			System.out.println("/resources:"+servletContext.getRealPath("/resources"));
 			// resources:  = C:\Spring_hjin\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\bookstore\1.jpg
 			
-			String uploadPath = servletContext.getRealPath("/resources");
+			String uploadPath = servletContext.getRealPath("/resources/book_images");
 			
 			System.out.println("result.hasErrors():"+result.hasErrors());
 			
@@ -85,7 +85,7 @@ public class ProductInputController {
 						e.printStackTrace();
 					}
 					
-					mav.setViewName(gotoPage);
+					mav.setViewName("redirect:/detail.pv?isbn="+product.getIsbn());
 					
 				}
 				else {

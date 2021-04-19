@@ -34,13 +34,11 @@ public class ProductSearchViewController {
 			@RequestParam(value = "search", required = true) String search, 
 			HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
+		if(search.equals("")) {
+			mav.setViewName("redirect:/view.pv");
+			return mav;
+		}
 		Map<String, String> map = new HashMap<String, String>();
-		System.out.println("이거 왜이러는거임");
-		System.out.println(whatColumn);
-		System.out.println(whatColumn2);
-		System.out.println(whatColumn3);
-		System.out.println(search);
-		System.out.println("이거 왜이러는거임");
 		map.put("whatColumn", whatColumn);
 		map.put("whatColumn2", whatColumn2);
 		map.put("whatColumn3", whatColumn3);
