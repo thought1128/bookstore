@@ -5,9 +5,13 @@ import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -24,14 +28,18 @@ public class MemberFindPasswordController {
 	@Autowired
 	MemberDao mdao;
 	
+	@Autowired
+	private JavaMailSender mailSender;
+	
 	@RequestMapping(value = command,method = RequestMethod.GET)
 	public String doAction() {
 		return getPage;
 	}
 	@RequestMapping(value = command,method = RequestMethod.POST)
-	public String doAction(@RequestParam(value = "id") String id,@RequestParam(value = "email") String email,HttpServletResponse response) throws IOException {
-
-
+	public String doAction(
+			@RequestParam(value = "id") String id,
+			@RequestParam(value = "email") String email,
+			HttpServletResponse response) throws IOException {
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter pw =  response.getWriter();
 		Map<String, String> map = new HashMap<String, String>();
@@ -49,8 +57,27 @@ public class MemberFindPasswordController {
 			
 			
 		}else {
+			String setfrom = "bookstore603@gmail.com";
+			String tomail = email;
+			String title = "잃어버린 비밀번호 입니다.";
+			String content = password;
+
+			try {
+				MimeMessage message = mailSender.createMimeMessage();
+				MimeMessageHelper messageHelper = new MimeMessageHelper(message,
+						true, "UTF-8");
+
+				messageHelper.setFrom(setfrom);
+				messageHelper.setTo(tomail);
+				messageHelper.setSubject(title);
+				messageHelper.setText(content);
+
+				mailSender.send(message);
+			} catch (Exception e) {
+				System.out.println(e);
+			}
 			pw.print("<script type='text/javascript'>");
-			pw.print("alert('찾으시는 비밀번호는 "+password+"입니다')");
+			pw.print("alert('email로 비밀번호를 발송했습니다.')");
 			pw.print("</script>");
 			pw.flush();
 			
