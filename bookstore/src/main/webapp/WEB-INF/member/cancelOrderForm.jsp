@@ -48,7 +48,7 @@
 	</table>
 	<h3>주문 취소 사유</h3>
 
-	<form action="/bookstore/cancelOrder.me" method="post">
+	<form action="cancelOrder.me" method="post">
 		<div class="row">
 		<div class="col-md-4"></div>
 			<div class="col-md-1">주문 번호 :</div>

@@ -21,12 +21,12 @@
 <center>
 	<h1>주문 상태 변경</h1>
 
-	<form action="/bookstore/updateStatus.me" method="post">
+	<form action="updateStatus.me" method="post">
 		<div class="row">
 			<div class="col-md-4"></div>
 			<div class="col-md-1">주문 번호 </div>
 			<div class="col-md-2">
-				<input type="text" name="orderNum" value="${orderNum }"
+				<input type="text" name="orderNum" value="${orderNum}"
 					class="form-control" readonly="readonly">
 			</div>
 		</div>
@@ -35,17 +35,17 @@
 			<div class="col-md-1">주문 상태 </div>
 			<div class="col-md-1">
 				<select name="status" class="form-select">
-					<option value="결재 완료">결재 완료
-					<option value="배송전">배송전
-					<option value="배송중">배송중
-					<option value="배송완료">배송완료
-					<option value="환불요청">환불요청
-					<option value="교환요청">교환요청
-					<option value="고객 주문취소 요청">고객 주문취소 요청
-					<option value="고객 주문취소">고객 주문취소
-					<option value="관리자 주문취소">관리자 주문취소
-					<option value="환불완료">환불완료
-					<option value="교환완료">교환완료
+					<option value="결재 완료">결재 완료</option>
+					<option value="배송전">배송전</option>
+					<option value="배송중">배송중</option>
+					<option value="배송완료">배송완료</option>
+					<option value="환불요청">환불요청</option>
+					<option value="교환요청">교환요청</option>
+					<option value="고객 주문취소 요청">고객 주문취소 요청</option>
+					<option value="고객 주문취소">고객 주문취소</option>
+					<option value="관리자 주문취소">관리자 주문취소</option>
+					<option value="환불완료">환불완료</option>
+					<option value="교환완료">교환완료</option>
 				</select>
 			</div>
 			<div class="row">
@@ -53,7 +53,6 @@
 				<div class="col-md-6">
 					<textarea rows="5" cols="65" name="reason"></textarea>
 				</div>
-
 			</div>
 			<div class="row">
 				<div class="col-md-7"></div>
@@ -61,6 +60,7 @@
 					<input type="submit" value="상태 변경" class="btn btn-primary">
 				</div>
 			</div>
+		</div>
 	</form>
 </center>
 <%@ include file="./../../footer.jsp"%>

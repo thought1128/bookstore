@@ -60,15 +60,14 @@
 			<th>전체 포인트</th>
 		</tr>
 
-		<c:forEach items="${orderList }" var="list">
+		<c:forEach items="${orderList}" var="list">
 			<tr>
-				<td><a
-					href="memberOProductDetail.me?orderNum=${list.orderNum }">${list.orderNum}</a></td>
+				<td><a href="memberOProductDetail.me?orderNum=${list.orderNum}">${list.orderNum}</a></td>
 				<td>${list.name}</td>
 				<td>${list.address}</td>
 				<td>${list.phoneNum}</td>
 				<td>${list.trackNum}</td>
-								<c:if test="${list.status eq '고객 주문취소' or list.status eq '관리자 주문취소'or list.status eq '환불완료'or list.status eq '교환완료'}">
+				<c:if test="${list.status eq '고객 주문취소' or list.status eq '관리자 주문취소'or list.status eq '환불완료'or list.status eq '교환완료'}">
 					<td class="table-danger">${list.status }</td>
 				</c:if>
 				<c:if test="${list.status eq '고객 주문취소 요청' or list.status eq '환불요청' or list.status eq '교환요청'}">
@@ -77,7 +76,6 @@
 				<c:if test="${list.status eq '' or list.status eq '결재 완료'or list.status eq '배송전'}">
 					<td class="table-primary">${list.status }</td>
 				</c:if>
-				
 				<c:if test="${list.status eq '배송완료'or list.status eq '배송중'}">
 					<td class="table-success">${list.status }</td>
 				</c:if>

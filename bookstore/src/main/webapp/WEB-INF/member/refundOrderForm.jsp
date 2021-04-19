@@ -21,12 +21,12 @@
 <center>
 	<h1>교환/환불 신청</h1>
 
-	<form action="/bookstore/refundOrder.me" method="post">
+	<form action="refundOrder.me" method="post">
 		<div class="row">
 			<div class="col-md-4"></div>
 			<div class="col-md-1">주문 번호 </div>
 			<div class="col-md-2">
-				<input type="text" name="orderNum" value="${orderNum }"
+				<input type="text" name="orderNum" value="${orderNum}"
 					class="form-control" readonly="readonly">
 			</div>
 		</div>
@@ -54,6 +54,7 @@
 					<input type="submit" value="교환/환불 요청" class="btn btn-primary">
 				</div>
 			</div>
+		</div>
 	</form>
 </center>
 <%@ include file="./../../footer.jsp"%>

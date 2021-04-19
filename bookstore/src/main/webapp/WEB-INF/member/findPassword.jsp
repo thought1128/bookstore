@@ -22,9 +22,7 @@
 	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <%@ include file="./../../book_nav.jsp"%>
 <h2 align="center">
-	<a href="findId.me" style="color: black; text-decoration: none;">아이디찾기</a>|<a
-		href="findPassword.me" style="color: black; text-decoration: none;">비밀번호
-		찾기</a>
+	<a href="findId.me" style="color: black; text-decoration: none;">아이디찾기</a>|<a href="findPassword.me" style="color: black; text-decoration: none;">비밀번호 찾기</a>
 </h2>
 <form action="findPassword.me" method="post">
 	<div class="row">

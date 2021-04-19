@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<nav class="navbar  navbar-expand navbar-light"
+<nav class="navbar navbar-expand navbar-light"
 	style="background-color: #e3f2fd;">
 	<div align="center" class="collapse navbar-collapse"
 		id="navbarNavAltMarkup">

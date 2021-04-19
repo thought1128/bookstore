@@ -32,10 +32,7 @@
 		<td>${oproduct.oqty}</td>
 		<td>${oproduct.point}</td>
 	</tr>
-	
-	
 	</c:forEach>
-
 </table>
 </center>
 <%@ include file="./../../footer.jsp"%>

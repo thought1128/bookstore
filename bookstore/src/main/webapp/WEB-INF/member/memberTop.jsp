@@ -14,7 +14,6 @@
 			<a class="nav-link active" href="cancelOrderList.me">취소/반품/교환/환불 내역</a>
 			<a class="nav-link active" href="list.br?whatColumn=name&keyword=${sessionScope.loginInfo.name }">질문내역</a>
 			<a class="nav-link active" href="list.rv?whatColumn=memberNum&keyword=${sessionScope.loginInfo.memberNum}">작성한 리뷰 목록</a>
-			
 		</div>
 	</div>
 </nav>

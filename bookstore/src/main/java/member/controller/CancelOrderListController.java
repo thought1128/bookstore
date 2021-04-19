@@ -27,7 +27,7 @@ public class CancelOrderListController {
 	public String doAction(HttpSession session,Model model) {
 		Member member = (Member) session.getAttribute("loginInfo");
 		if(member == null) {
-			session.setAttribute("destination","redirect:"+command );
+			session.setAttribute("destination","redirect:"+command);
 			return gotoPage;
 		}else {
 			

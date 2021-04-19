@@ -20,10 +20,10 @@
 
 <script type="text/javascript">
 		function updateStatus(orderNum){
-			location.href = "/bookstore/updateStatus.me?orderNum="+orderNum;
+			location.href = "updateStatus.me?orderNum="+orderNum;
 		}
 		function insertTrackNum(orderNum){
-			location.href = "/bookstore/insertTrackNum.me?orderNum="+orderNum;
+			location.href = "insertTrackNum.me?orderNum="+orderNum;
 		}
 	</script>
 
@@ -31,7 +31,7 @@
 <%@ include file="./adminTop.jsp"%>
 
 			<h1 align="center">주문 리스트</h1>
-			<form action=adminMain.prd method="post">
+			<form action="adminMain.prd" method="post">
 				<div class="row">
 					<div class="col-md-5"></div>
 					<div class="col-md-2">
@@ -55,7 +55,7 @@
 					</div>
 				</div>
 			</form>
-			<table class="table table-hover mx-auto" style="width: 1200px;">
+			<table class="table table-hover mx-auto" style="width: 1600px;">
 				<tr>
 					<th><span>주문번호</span></th>
 					<th><span>주문일자</span></th>
@@ -73,63 +73,33 @@
 				</tr>
 				<c:forEach items="${orderMemberLists }" var="member">
 					<tr>
-						<td><a
-							href="memberOProductDetail.me?orderNum=${member.orderNum }">${member.orderNum }</a>
-						</td>
-						<td>${member.orderDate }</td>
-						<td><a href="detail.me?memberNum=${member.memberNum }">${member.memberNum }</a>
-							<!-- detail.me=> MemberDetailViewController --></td>
-						<td>${member.name }</td>
-						<td>${member.address }</td>
-						<td>${member.phoneNum }</td>
-						<td>${member.trackNum }</td>
-
-
-						<c:if
-							test="${member.status eq '고객 주문취소' or member.status eq '관리자 주문취소'or member.status eq '환불완료'or member.status eq '교환완료'}">
-							<td class="table-danger">${member.status }</td>
-						</c:if>
-						<c:if
-							test="${member.status eq '고객 주문취소 요청' or member.status eq '환불요청' or member.status eq '교환요청'}">
-							<td class="table-warning">${member.status }</td>
-						</c:if>
-						<c:if
-							test="${member.status eq '' or member.status eq '결재 완료'or member.status eq '배송전'}">
-							<td class="table-primary">${member.status }</td>
-						</c:if>
-
+						<th><a href="memberOProductDetail.me?orderNum=${member.orderNum }">${member.orderNum }</a></th>
+						<th>${member.orderDate }</th>
+						<th><a href="detail.me?memberNum=${member.memberNum }">${member.memberNum }</a>
+							<!-- detail.me=> MemberDetailViewController --></th>
+						<th>${member.name }</th>
+						<th>${member.address }</th>
+						<th>${member.phoneNum }</th>
+						<th>${member.trackNum }</th>
+						<c:if test="${member.status eq '고객 주문취소' or member.status eq '관리자 주문취소'or member.status eq '환불완료'or member.status eq '교환완료'}">
+							<th class="table-danger">${member.status }</th></c:if>
+						<c:if test="${member.status eq '고객 주문취소 요청' or member.status eq '환불요청' or member.status eq '교환요청'}">
+							<th class="table-warning">${member.status }</th></c:if>
+						<c:if test="${member.status eq '' or member.status eq '결재 완료'or member.status eq '배송전'}">
+							<th class="table-primary">${member.status }</th></c:if>
 						<c:if test="${member.status eq '배송완료'or member.status eq '배송중'}">
-							<td class="table-success">${member.status }</td>
-						</c:if>
-						<td>${member.totalPrice }</td>
-						<td>${member.totalPoint }</td>
-						<td>${member.reason}</td>
-						<td><c:if
-							test="${member.status ne '고객 주문취소' and member.status ne '관리자 주문취소'and member.status ne '환불완료' and member.status ne '교환완료'}">
-							
-						<input type="button" value="주문상태변경"
-							class="btn btn-primary"
-							onclick="updateStatus(${member.orderNum})">
-						</c:if>
-						</td>
-						<td>
-						<c:if
-							test="${member.status eq '' or member.status eq '결재 완료'or member.status eq '배송전'}">
-							<input type="button" value="택배번호 입력"
-								class="btn btn-primary"
-								onclick="insertTrackNum(${member.orderNum})">
-						</c:if>
-						</td>
+							<th class="table-success">${member.status }</th></c:if>
+						<th>${member.totalPrice }</th>
+						<th>${member.totalPoint }</th>
+						<th>${member.reason}</th>
+						<th><c:if test="${member.status ne '고객 주문취소' and member.status ne '관리자 주문취소'and member.status ne '환불완료' and member.status ne '교환완료'}">
+							<input type="button" value="주문상태변경" class="btn btn-primary" onclick="updateStatus(${member.orderNum})"></c:if>
+						</th>
+						<th><c:if test="${member.status eq '' or member.status eq '결재 완료'or member.status eq '배송전'}">
+							<input type="button" value="택배번호 입력" class="btn btn-primary" onclick="insertTrackNum(${member.orderNum})"></c:if>
+						</th>
 					</tr>
 				</c:forEach>
 			</table>
-
-
-
-
-
-
-<br>
 <center>${pageInfo.pagingHtml }</center>
-
 <%@ include file="./../../footer.jsp"%>

@@ -6,7 +6,7 @@
 <!-- 		<h1 class="contact__title">감사합니다</h1> -->
 		<h4 class="contact__email">김동욱 gom0109@gmail.com<br>김민우 thought1128@gmail.com<br>배석진 infoqoch@gmail.com<br>임혜진 hzeen0301@gmail.com</h4>
 		<div class="contact__links">
-			<a href="https://github.com/gom0109/case_shop" target="_blank"> 
+			<a href="https://github.com/thought1128/bookstore" target="_blank"> 
 				<i class="fab fa-github"></i>
 			</a> 
 			<a href="#" target="_blank"> 

@@ -12,28 +12,21 @@
 	integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
 	crossorigin="anonymous">
 <!-- Bootstrap JS -->
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
-	integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
-	crossorigin="anonymous"></script>
-<link
-	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap"
-	rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
 
 <script type="text/javascript">
 	function cancelOrder(orderNum){
-		location.href= "/bookstore/cancelOrder.me?orderNum="+orderNum
+		location.href= "cancelOrder.me?orderNum="+orderNum
 	}
 	function refundOrder(orderNum){
-		location.href= "/bookstore/refundOrder.me?orderNum="+orderNum
+		location.href= "refundOrder.me?orderNum="+orderNum
 	}
 	
 </script>
 
 <%@ include file="./../../book_nav.jsp"%>
 <%@ include file="./memberTop.jsp"%>
-<h4 align="right">나의 현재 포인트 : ${sessionScope.loginInfo.point }point</h4>
-
 
 <center >
 	<h2>배송현황</h2>
@@ -68,7 +61,7 @@
 		</tr>
 		<c:forEach items="${list }" var="orders">
 			<tr>
-				<th><a href="memberOProductDetail.me?orderNum=${orders.orderNum }">${orders.orderNum }</a></th>
+				<th><a href="memberOProductDetail.me?orderNum=${orders.orderNum}">${orders.orderNum}</a></th>
 				<th>${orders.orderDate }</th>
 				<th>${orders.trackNum }</th>
 				<th>${orders.name }</th>
@@ -91,11 +84,10 @@
 					<th class="table-success">${orders.status }</th>
 				</c:if>
 				<th>${orders.totalPrice }</th>
-				
 				<th>${orders.reason }</th>
 				<c:if test="${orders.status eq '결재 완료' or orders.status eq '배송전'}">
 					<th><input type="button" value="주문 취소" class="btn btn-warning"
-						onclick="cancelOrder(${orders.orderNum })"></th>
+						onclick="cancelOrder(${orders.orderNum})"></th>
 				</c:if>
 				<c:if test="${orders.status eq '배송중' or orders.status eq '배송완료'}">
 					<th><input type="button" value="교환/환불 요청"
@@ -106,9 +98,7 @@
 					<th></th>
 				</c:if>
 			</tr>
-
 		</c:forEach>
-
 	</table>
 </center>
 <%@ include file="./../../footer.jsp"%>

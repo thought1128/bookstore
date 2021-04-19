@@ -86,17 +86,17 @@
 	<tr>
 		<td width="120">책 이미지</td>
 		<td width="180">
-		<img src="<%=request.getContextPath() %>/resources/book_images/${product.image }" width="100px" height="100px">
+		<img src="<%=request.getContextPath() %>/resources/book_images/${product.image}" width="100px" height="100px">
 		
 		<input type="file" name="upload"> 
-		<input type="hidden" name="upload2" value="${product.image }">
+		<input type="hidden" name="upload2" value="${product.image}">
 		<form:errors cssClass="err" path="image" />
 	</td>
 	</tr>
 	<tr>
 		<td width="120">분류</td>
 		<td width="180">
-			<input type="text" name="classify" value="${product.classify }">
+			<input type="text" name="classify" value="${product.classify}">
 			<form:errors cssClass="err" path="classify" />
 		</td>
 	</tr>

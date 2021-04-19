@@ -19,8 +19,8 @@
 	rel="stylesheet">
 <%@ include file="./../../book_nav.jsp"%>
 
-<form action="/bookstore/insertTrackNum.me" method="post">
-	<input type="hidden" name="orderNum" value="${orderNum }">
+<form action="insertTrackNum.me" method="post">
+	<input type="hidden" name="orderNum" value="${orderNum}">
 
 	<div class="row">
 		<div class="col-md-4"></div>
