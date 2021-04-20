@@ -22,7 +22,7 @@
 	<input type="text" name="keyword"> <input type="submit" value="검색">
 </form>
 </center>
-	<table border="1"  align="center">
+	<table border="1"  align="center" class='table table-bordered'>
 		<tr>
 			<td colspan="13" align="right"><input type="button" value="추가하기"
 				onclick="insert()"></td>
@@ -45,24 +45,24 @@
 		</tr>
 		<c:forEach items="${list }" var="product">
 			<tr>
-				<td align="center">${product.title }</td>
-				<td align="center">${product.isbn }</td>
-				<td align="center">${product.writer }</td>
-				<td align="center">${product.publisher  }</td>
-				<td align="center">
+				<th align="center">${product.title }</th>
+				<th align="center">${product.isbn }</th>
+				<th align="center">${product.writer }</th>
+				<th align="center">${product.publisher  }</th>
+				<th align="center">
 				<fmt:parseDate var="day" value="${product.publishedDate}" pattern="yyyy-MM-dd" /> 
             <fmt:formatDate value="${day}" pattern="yyyy-MM-dd" />
-            </td>
-				<td align="center">${product.price   }</td>
-				<td align="center">${product.point  }</td>
-				<td align="center">${product.qty  }</td>
-				<td align="center">${product.status   }</td>
-				<td align="center">${product.image   }</td>
-				<td align="center">${product.classify   }</td>
-				<td align="center">${product.promotions    }</td>
-				<td align="center">
+            </th>
+				<th align="center">${product.price   }</th>
+				<th align="center">${product.point  }</th>
+				<th align="center">${product.qty  }</th>
+				<th align="center">${product.status   }</th>
+				<th align="center">${product.image   }</th>
+				<th align="center">${product.classify   }</th>
+				<th align="center">${product.promotions    }</th>
+				<th align="center">
 				<a href="update.prd?isbn=${product.isbn }&pageNumber=${pageInfo.pageNumber}&pageSize=${pageInfo.pageSize}">수정</a>
-				<a href="delete.prd?isbn=${product.isbn }&pageNumber=${pageInfo.pageNumber}">삭제</a></td>
+				<a href="delete.prd?isbn=${product.isbn }&pageNumber=${pageInfo.pageNumber}">삭제</a></th>
 				
 			</tr>
 		</c:forEach>

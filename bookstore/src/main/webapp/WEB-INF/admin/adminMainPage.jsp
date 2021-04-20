@@ -55,7 +55,7 @@
 					</div>
 				</div>
 			</form>
-			<table class="table table-hover mx-auto" style="width: 1600px;">
+			<table class="table table-hover table-bordered mx-auto" style="width: 100%;">
 				<tr>
 					<th><span>주문번호</span></th>
 					<th><span>주문일자</span></th>

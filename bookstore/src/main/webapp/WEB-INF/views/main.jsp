@@ -94,110 +94,134 @@
 			<h3>Projects</h3>
 			<div class="work__categories">
 				<button class="category__btn selected" data-filter="*">
-					전체 <span class="category__count">12</span>
+					전체 <span class="category__count">16</span>
 				</button>
 				<button class="category__btn" data-filter="Kim-Dong-wook">
-					김동욱 <span class="category__count">3</span>
+					김동욱 <span class="category__count">4</span>
 				</button>
 				<button class="category__btn" data-filter="Kim-Min-woo">
-					김민우 <span class="category__count">3</span>
+					김민우 <span class="category__count">4</span>
 				</button>
 				<button class="category__btn" data-filter="Bae-Seok-jin">
-					배석진 <span class="category__count">3</span>
+					배석진 <span class="category__count">4</span>
 				</button>
 				<button class="category__btn" data-filter="Lim-Hye-jin">
-					임혜진 <span class="category__count">3</span>
+					임혜진 <span class="category__count">4</span>
 				</button>
 				
 			</div>
 			<div class="work__projects">
 				
-				<a href="" class="project" target="blank" data-type="Kim-Dong-wook">
-					<img class="project__img" src="" alt="회원가입 페이지" />
+				<a href="<%=request.getContextPath()%>/join.me" class="project" target="blank" data-type="Kim-Dong-wook">
+					<img class="project__img" src="resources/main/img/work/signup.png" alt="회원가입 페이지" />
 					<div class="project__description">
-						<h3>회원가입 페이지</h3>
+						<h3>회원가입</h3>
 						<span>김동욱</span>
 					</div>
 				</a>
-				<a href="" class="project" target="blank" data-type="Kim-Dong-wook">
-					<img class="project__img" src="" alt="로그인 페이지" />
+				<a href="<%=request.getContextPath()%>/login.me" class="project" target="blank" data-type="Kim-Dong-wook">
+					<img class="project__img" src="resources/main/img/work/login.png" alt="로그인" />
 					<div class="project__description">
 						<h3>로그인 페이지</h3>
 						<span>김동욱</span>
 					</div>
 				</a>
-				
-				<a href="" class="project" target="blank" data-type="Kim-Dong-wook">
-					<img class="project__img" src="" alt="회원 관리 DB" />
+				<a href="<%=request.getContextPath()%>/findId.me" class="project" target="blank" data-type="Kim-Dong-wook">
+					<img class="project__img" src="resources/main/img/work/idpw.png" alt="id/pw 찾기" />
 					<div class="project__description">
-						<h3>회원 관리 DB</h3>
+						<h3>id/pw 찾기</h3>
 						<span>김동욱</span>
 					</div>
 				</a>
-				
-				<a href="" class="project" target="blank" data-type="Kim-Min-woo">
-					<img class="project__img" src="resources/main/project/main_page.png" alt="상품 페이지" />
+				<a href="<%=request.getContextPath()%>/myPage.me" class="project" target="blank" data-type="Kim-Dong-wook">
+					<img class="project__img" src="resources/main/img/work/user.png" alt="회원 페이지" />
+					<div class="project__description">
+						<h3>회원 페이지</h3>
+						<span>김동욱</span>
+					</div>
+				</a>
+				<a href="<%=request.getContextPath()%>/main.jsp" class="project" target="blank" data-type="Kim-Min-woo">
+					<img class="project__img" src="resources/main/project/main_page.png" alt="소개 페이지" />
+					<div class="project__description">
+						<h3>소개 페이지</h3>
+						<span>김민우</span>
+					</div>
+				</a>
+				<a href="<%=request.getContextPath()%>/main.pv" class="project" data-type="Kim-Min-woo" target="blank">
+					<img class="project__img" src="resources/main/img/work/main.png" alt="메인 페이지" />
 					<div class="project__description">
 						<h3>메인 페이지</h3>
 						<span>김민우</span>
 					</div>
+				</a> 
+				<a href="<%=request.getContextPath()%>/view.pv" class="project" data-type="Kim-Min-woo" target="blank">
+					<img class="project__img" src="resources/main/img/work/view.png" alt="상품 페이지 " />
+					<div class="project__description">
+						<h3>책 목록 페이지</h3>
+						<span>김민우</span>
+					</div>
 				</a>
-				<a href="" class="project" data-type="Kim-Min-woo" target="blank">
-					<img class="project__img" src="" alt="상품 목록 페이지" />
+				<a href="<%=request.getContextPath()%>/detail.pv?isbn=9791160804591" class="project" data-type="Kim-Min-woo" target="blank">
+					<img class="project__img" src="resources/main/img/work/detail.png" alt="책 상세 페이지 " />
 					<div class="project__description">
-						<h3>상품 목록 페이지</h3>
+						<h3>책 상세 페이지</h3>
 						<span>김민우</span>
 					</div>
-				</a> 
-				<a href="" class="project" data-type="Kim-Min-woo" target="blank">
-					<img class="project__img" src="" alt="상품 상세보기 페이지 " />
+				</a>
+				<a href="<%=request.getContextPath()%>/list.br" class="project" data-type="Bae-Seok-jin" target="blank"> 
+					<img class="project__img" src="resources/main/img/work/qna.png" alt="QnA 게시판" />
 					<div class="project__description">
-						<h3>상품 상세보기 페이지</h3>
-						<span>김민우</span>
-					</div>
-				</a> 
-				
-				<a href="" class="project" data-type="Bae-Seok-jin"> 
-					<img class="project__img" src="" alt="상품 주문 페이지" />
-					<div class="project__description">
-						<h3>상품 주문 페이지</h3>
+						<h3>QnA 게시판</h3>
 						<span>배석진</span>
 					</div>
 				</a> 
-				<a href="" class="project" data-type="Bae-Seok-jin"> 
-					<img class="project__img" src="" alt="장바구니 페이지" />
+				<a href="<%=request.getContextPath()%>/list.mall" class="project" data-type="Bae-Seok-jin" target="blank"> 
+					<img class="project__img" src="resources/main/img/work/listmall.png" alt="장바구니 페이지" />
 					<div class="project__description">
 						<h3>장바구니 페이지</h3>
 						<span>배석진</span>
 					</div>
 				</a> 
-				<a href="" class="project" data-type="Bae-Seok-jin">
-					<img class="project__img" src="" alt="결제 페이지" />
+				<a href="<%=request.getContextPath()%>/detail.pv?isbn=9791160804591" class="project" data-type="Bae-Seok-jin" target="blank">
+					<img class="project__img" src="resources/main/img/work/review.png" alt="리뷰 게시판" />
 					<div class="project__description">
-						<h3>결제 페이지</h3>
+						<h3>리뷰 게시판</h3>
+						<span>배석진</span>
+					</div>
+				</a>
+				<a href="<%=request.getContextPath()%>/read.rv?reviewNum=1" class="project" data-type="Bae-Seok-jin" target="blank">
+					<img class="project__img" src="resources/main/img/work/read.png" alt="리뷰 게시판2" />
+					<div class="project__description">
+						<h3>리뷰 게시판2</h3>
 						<span>배석진</span>
 					</div>
 				</a> 
-				
-				<a href="" class="project" data-type="Lim-Hye-jin">
-					<img class="project__img" src="" alt="관리자 페이지" />
+				<a href="<%=request.getContextPath()%>/list.prd" class="project" data-type="Lim-Hye-jin" target="blank">
+					<img class="project__img" src="resources/main/img/work/prdlist.png" alt="책 관리 페이지" />
 					<div class="project__description">
-						<h3>관리자 페이지</h3>
+						<h3>책 관리 페이지</h3>
 						<span>임혜진</span>
 					</div>
 				</a> 
-				<a href="" class="project" data-type="Lim-Hye-jin">
-					<img class="project__img" src="" alt="상품 등록 페이지" />
+				<a href="<%=request.getContextPath()%>/input.prd" class="project" data-type="Lim-Hye-jin" target="blank">
+					<img class="project__img" src="resources/main/img/work/bookinput.png" alt="상품 등록 페이지" />
 					<div class="project__description">
-						<h3>상품 등록 페이지</h3>
-						<span>임폐진</span>
+						<h3>책 추가 페이지</h3>
+						<span>임혜진</span>
 					</div>
 				</a>
-				<a href="" class="project" data-type="Lim-Hye-jin">
-					<img class="project__img" src="" alt="주문 및 배송 관리" />
+				<a href="<%=request.getContextPath()%>/adminMain.prd" class="project" data-type="Lim-Hye-jin" target="blank">
+					<img class="project__img" src="resources/main/img/work/adminlist.png" alt="주문 및 배송 관리" />
 					<div class="project__description">
 						<h3>주문 및 배송 관리</h3>
-						<span>임폐진</span>
+						<span>임혜진</span>
+					</div>
+				</a>
+				<a href="<%=request.getContextPath()%>/memberList.me" class="project" data-type="Lim-Hye-jin" target="blank">
+					<img class="project__img" src="resources/main/img/work/memberlist.png" alt="회원 리스트" />
+					<div class="project__description">
+						<h3>회원 리스트</h3>
+						<span>임혜진</span>
 					</div>
 				</a>
 			</div>

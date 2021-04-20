@@ -44,7 +44,7 @@
 
 
 	</form>
-	<table class="table table-hover mx-auto" style="width: 1100px;">
+	<table class="table table-hover table-bordered mx-auto" style="width: 1100px;">
 		<tr>
 			<th><span>멤버 번호</span></th>
 			<th><span>ID</span></th>
@@ -56,14 +56,14 @@
 		</tr>
 		<c:forEach items="${memberLists }" var="member">
 			<tr>
-				<td>${member.memberNum }</td>
-				<td><a href="detail.me?memberNum=${member.memberNum }">${member.id }</a>
-					<!-- detail.me=> MemberDetailViewController --></td>
-				<td>${member.name }</td>
-				<td>${member.phoneNum }</td>
-				<td>${member.email }</td>
-				<td>${member.address }</td>
-				<td>${member.point }</td>
+				<th>${member.memberNum }</th>
+				<th><a href="detail.me?memberNum=${member.memberNum }">${member.id }</a>
+					<!-- detail.me=> MemberDetailViewController --></th>
+				<th>${member.name }</th>
+				<th>${member.phoneNum }</th>
+				<th>${member.email }</th>
+				<th>${member.address }</th>
+				<th>${member.point }</th>
 
 			</tr>
 		</c:forEach>

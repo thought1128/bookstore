@@ -21,7 +21,7 @@
 	<%@ include file="./../admin/adminTop.jsp"%>
 
 <center>
-	<table class="table table-hover mx-auto" style="width: 1200px;">
+	<table class="table table-hover table-bordered mx-auto" style="width: 1200px;">
 		<tr>
 			<th colspan="7">회원정보</th>
 		</tr>
@@ -35,13 +35,13 @@
 			<th>적립 포인트</th>
 		</tr>
 		<tr>
-			<td>${memberDetail.memberNum}</td>
-			<td>${memberDetail.id}</td>
-			<td>${memberDetail.name}</td>
-			<td>${memberDetail.phoneNum}</td>
-			<td>${memberDetail.email}</td>
-			<td>${memberDetail.address}</td>
-			<td>${memberDetail.point}</td>
+			<th>${memberDetail.memberNum}</th>
+			<th>${memberDetail.id}</th>
+			<th>${memberDetail.name}</th>
+			<th>${memberDetail.phoneNum}</th>
+			<th>${memberDetail.email}</th>
+			<th>${memberDetail.address}</th>
+			<th>${memberDetail.point}</th>
 		</tr>
 	</table>
 
@@ -62,25 +62,25 @@
 
 		<c:forEach items="${orderList}" var="list">
 			<tr>
-				<td><a href="memberOProductDetail.me?orderNum=${list.orderNum}">${list.orderNum}</a></td>
-				<td>${list.name}</td>
-				<td>${list.address}</td>
-				<td>${list.phoneNum}</td>
-				<td>${list.trackNum}</td>
+				<th><a href="memberOProductDetail.me?orderNum=${list.orderNum}">${list.orderNum}</a></th>
+				<th>${list.name}</th>
+				<th>${list.address}</th>
+				<th>${list.phoneNum}</th>
+				<th>${list.trackNum}</th>
 				<c:if test="${list.status eq '고객 주문취소' or list.status eq '관리자 주문취소'or list.status eq '환불완료'or list.status eq '교환완료'}">
-					<td class="table-danger">${list.status }</td>
+					<th class="table-danger">${list.status }</th>
 				</c:if>
 				<c:if test="${list.status eq '고객 주문취소 요청' or list.status eq '환불요청' or list.status eq '교환요청'}">
-					<td class="table-warning">${list.status }</td>
+					<th class="table-warning">${list.status }</th>
 				</c:if>
 				<c:if test="${list.status eq '' or list.status eq '결재 완료'or list.status eq '배송전'}">
-					<td class="table-primary">${list.status }</td>
+					<th class="table-primary">${list.status }</th>
 				</c:if>
 				<c:if test="${list.status eq '배송완료'or list.status eq '배송중'}">
-					<td class="table-success">${list.status }</td>
+					<th class="table-success">${list.status }</th>
 				</c:if>
-				<td>${list.totalPrice}</td>
-				<td>${list.totalPoint}</td>
+				<th>${list.totalPrice}</th>
+				<th>${list.totalPoint}</th>
 			</tr>
 		</c:forEach>
 

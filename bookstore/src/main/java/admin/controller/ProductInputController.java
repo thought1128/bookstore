@@ -7,6 +7,7 @@ import java.util.Locale.Category;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import admin.model.Product;
 import admin.model.ProductDao;
+import member.model.Member;
 
 @Controller
 public class ProductInputController {
@@ -36,10 +38,16 @@ public class ProductInputController {
 	ServletContext servletContext; 
 	
 	@RequestMapping(value=command,method = RequestMethod.GET)
-	public String doAction(Category category,Model model) {
-		
-		//List<Category> lists = categoryDao.selectAll(); 
-		//model.addAttribute("lists", lists);
+	public String doAction(Category category,Model model,HttpSession session) {
+		Member member = (Member)session.getAttribute("loginInfo");
+		if(member==null) {
+			session.setAttribute("destination", "redirect:/adminMain.prd");
+
+			return "redirect:/adminMain.prd";	
+		}
+		if(!(member.getId().equals("admin"))) {
+			return "redirect:/adminMain.prd";	
+		}
 		return getPage;
 	}
 
@@ -49,23 +57,15 @@ public class ProductInputController {
 			  BindingResult result,
 			  @RequestParam(value="targetDate", required = false) String targetDate,
 			  HttpServletRequest request) {
+			ModelAndView mav = new ModelAndView();
+
 			String image = product.getImage();
-			System.out.println("image:" + image);
-			
-			System.out.println("servletContext:" + servletContext);
-			System.out.println("/:"+servletContext.getRealPath("/"));
-			System.out.println("/resources:"+servletContext.getRealPath("/resources"));
-			// resources:  = C:\Spring_hjin\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\bookstore\1.jpg
 			
 			String uploadPath = servletContext.getRealPath("/resources/book_images");
 			
-			System.out.println("result.hasErrors():"+result.hasErrors());
-			
-			ModelAndView mav = new ModelAndView();
 			
 			MultipartFile multi = product.getUpload();
-			System.out.println("-----tostring-----");
-			System.out.println(targetDate);
+			
 			product.setPublishedDate(targetDate);
 
 			System.out.println(product.toString());
