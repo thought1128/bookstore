@@ -61,8 +61,6 @@ public class MemberJoinController {
 
 		} else {
 			if (result.hasErrors()) {
-				System.out.println(member.getAddress());
-				System.out.println(member.getEmail());
 				mav.addObject("member", member);
 				mav.setViewName(getPage);
 			} else {
@@ -97,10 +95,7 @@ public class MemberJoinController {
 						pw.flush();
 						mav.addObject("member", member);
 						mav.setViewName(getPage);
-					}
-					
-					
-					else {
+					}else {
 						int cnt = mdao.joinMember(member);
 						if (cnt == 1) {
 
